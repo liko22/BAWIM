@@ -1,0 +1,51 @@
+Zadanie 1
+Dodaj do formularza jedno ukryte pole (typu hidden), które przekaże na serwer token CSRF o wartości xyz890.
+
+
+<form action="/zmien-haslo" method="POST">
+    <label>Nowe hasło:</label>
+    <input type="password" name="nowe_haslo">
+    
+    <!-- TUTAJ DODAJ ZABEZPIECZENIE CSRF -->
+    
+    <button type="submit">Zmień hasło</button>
+</form>
+
+
+
+
+Zadanie 2
+Uzupełnij instrukcję warunkową if, aby serwer odrzucił żądanie (zwrócił błąd), jeśli token z formularza nie zgadza się z tokenem zapisanym w sesji użytkownika.
+
+
+function zmienEmail(zadanieOdUzytkownika) {
+    let tokenZFormularza = zadanieOdUzytkownika.body.csrf_token;
+    let tokenZSesji = zadanieOdUzytkownika.session.csrf_token;
+
+    // UZUPEŁNIJ WARUNEK W NAWIASACH
+    if ( /* TUTAJ WPISZ WARUNEK */ ) {
+        return "Błąd 403: Atak CSRF zablokowany!";
+    }
+
+    // Jeśli tokeny się zgadzają, wykonaj akcję
+    bazaDanych.zaktualizujEmail(zadanieOdUzytkownika.body.nowy_email);
+    return "E-mail został zmieniony bezpiecznie.";
+}
+
+
+
+Zadanie 3
+Uzupełnij konfigurację funkcji fetch – dopisz w sekcji headers jedną linijkę, która przekaże token do serwera
+
+
+let mojToken = "tajny_token_777";
+
+fetch('/api/skasuj-wiadomosc', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        // TUTAJ DODAJ NAGŁÓWEK Z TOKENEM CSRF
+        
+    },
+    body: JSON.stringify({ id_wiadomosci: 42 })
+});
