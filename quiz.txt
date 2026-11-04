@@ -1,0 +1,59 @@
+Pytanie 1: Czym charakteryzuje się podatność Cross-Site Request Forgery?
+
+A) Wstrzyknięciem i wykonaniem złośliwego kodu JavaScript w przeglądarce ofiary.
+
+B) Zmuszeniem uwierzytelnionego użytkownika do wykonania nieintencjonalnej akcji w podatnej aplikacji webowej.
+
+C) Przejęciem serwera bazodanowego poprzez wysłanie złośliwego zapytania SQL.
+
+D) Zablokowaniem dostępu do serwera poprzez zalanie go dużą liczbą zapytań.
+
+Poprawna odpowiedź: B
+
+Pytanie 2: Dlaczego atak CSRF w klasycznej formie jest możliwy do przeprowadzenia?
+
+A) Ponieważ serwer nie weryfikuje nagłówka User-Agent.
+
+B) Ponieważ przeglądarka automatycznie dołącza ciasteczka uwierzytelniające do zapytań wysyłanych do docelowej domeny.
+
+C) Ponieważ ofiara musi podać swoje hasło na złośliwej stronie atakującego.
+
+D) Ponieważ mechanizm CORS blokuje bezpieczną komunikację między domenami.
+
+Poprawna odpowiedź: B
+
+Pytanie 3: Które metody pozwalają skutecznie zabezpieczyć aplikację przed atakiem CSRF?
+
+A) Wykorzystanie unikalnych, kryptograficznie bezpiecznych tokenów anty-CSRF.
+
+B) Ustawienie atrybutu SameSite=Strict lub SameSite=Lax dla ciasteczek sesyjnych.
+
+C) Oznaczenie ciasteczka sesyjnego wyłącznie flagą HttpOnly.
+
+D) Wymuszenie ponownego uwierzytelnienia przy operacjach krytycznych.
+
+Poprawne odpowiedzi: A, B, D
+
+Pytanie 4: Dlaczego flaga HttpOnly w ciasteczku sesyjnym NIE chroni przed atakiem CSRF?
+
+A) HttpOnly działa wyłącznie w aplikacjach mobilnych.
+
+B) Flaga ta chroni przed odczytem ciasteczka przez JavaScript, natomiast w CSRF przeglądarka nadal automatycznie wysyła to ciasteczko w nagłówku zapytania.
+
+C) Serwery ignorują tę flagę, jeśli zapytanie jest wysyłane metodą POST.
+
+D) HttpOnly zabezpiecza wyłącznie połączenia nieszyfrowane.
+
+Poprawna odpowiedź: B
+
+Pytanie 5: Jaka jest zalecana rola bezpiecznych metod HTTP w kontekście ochrony przed CSRF?
+
+A) Metody te powinny służyć wyłącznie do pobierania danych i nigdy nie powinny zmieniać stanu aplikacji.
+
+B) Zastąpienie wszystkich metod POST metodami GET w pełni zabezpiecza aplikację przed CSRF.
+
+C) Metoda GET jest automatycznie chroniona przed wysyłaniem z obcych domen.
+
+D) Bezpieczne metody HTTP zawsze wymagają tokena CSRF w nagłówku.
+
+Poprawna odpowiedź: A
